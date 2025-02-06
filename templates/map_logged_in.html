@@ -1,0 +1,9 @@
+{% extends 'map_base.html' %}
+{% block left_column %}
+{% include 'search_tabs.html' %}
+{% endblock %}
+{% block right_column %}
+{% include 'results.html' %}
+<script src="/static/search_field.js"></script>
+<script src="/static/app_control.js"></script>
+{% endblock %}

@@ -1,0 +1,145 @@
+{
+  "age_groups": {
+    "18 to 49 years": {
+      "multiplier": 0.013938054183702671,
+      "confidence_range": {
+        "low": 0.013215419378929014,
+        "high": 0.014700201675041042
+      },
+      "sample_size": 30665035,
+      "death_rate": 4.418713365238292e-05
+    },
+    "50 to 64 years": {
+      "multiplier": 0.297796342034371,
+      "confidence_range": {
+        "low": 0.2922819750333965,
+        "high": 0.3034146462233312
+      },
+      "sample_size": 11636612,
+      "death_rate": 0.0009440892245956126
+    },
+    "65+ years": {
+      "multiplier": 6.4188492815975575,
+      "confidence_range": {
+        "low": 6.390318723154875,
+        "high": 6.447504561603526
+      },
+      "sample_size": 9320340,
+      "death_rate": 0.02034936493733061
+    },
+    "0 - 17 years": {
+      "multiplier": 0.0,
+      "confidence_range": {
+        "low": 0.0,
+        "high": 0.00011589495275873139
+      },
+      "sample_size": 10455716,
+      "death_rate": 0.0
+    }
+  },
+  "sex": {
+    "Male": {
+      "multiplier": 1.248562123317968,
+      "confidence_range": {
+        "low": 1.2411766033991003,
+        "high": 1.2559914144898516
+      },
+      "sample_size": 27464876,
+      "death_rate": 0.003958255628024682
+    },
+    "Female": {
+      "multiplier": 0.883795833511357,
+      "confidence_range": {
+        "low": 0.8781108874002109,
+        "high": 0.8895174802488566
+      },
+      "sample_size": 32832536,
+      "death_rate": 0.0028018548430130403
+    },
+    "Other": {
+      "multiplier": 0.0,
+      "confidence_range": {
+        "low": 0.0,
+        "high": 1.1149418251019858
+      },
+      "sample_size": 1083,
+      "death_rate": 0.0
+    }
+  },
+  "race": {
+    "Black": {
+      "multiplier": 0.7504569648304026,
+      "confidence_range": {
+        "low": 0.7380175980811844,
+        "high": 0.7631054900335954
+      },
+      "sample_size": 5765956,
+      "death_rate": 0.0023791371283443715
+    },
+    "Multiple/Other": {
+      "multiplier": 0.029511084103055626,
+      "confidence_range": {
+        "low": 0.023509838126873114,
+        "high": 0.037044060038320066
+      },
+      "sample_size": 790957,
+      "death_rate": 9.355755116902688e-05
+    },
+    "White": {
+      "multiplier": 1.5763076278955186,
+      "confidence_range": {
+        "low": 1.5688254049879233,
+        "high": 1.5838253558079944
+      },
+      "sample_size": 33788305,
+      "death_rate": 0.004997291222510274
+    },
+    "Asian": {
+      "multiplier": 0.49475867630325526,
+      "confidence_range": {
+        "low": 0.47311103282104267,
+        "high": 0.5173952010751433
+      },
+      "sample_size": 1221542,
+      "death_rate": 0.0015685093103634587
+    },
+    "American Indian/Alaska Native": {
+      "multiplier": 0.6153509606546906,
+      "confidence_range": {
+        "low": 0.5679320839784494,
+        "high": 0.6667206417654061
+      },
+      "sample_size": 305513,
+      "death_rate": 0.0019508171501703693
+    },
+    "Native Hawaiian/Other Pacific Islander": {
+      "multiplier": 0.0,
+      "confidence_range": {
+        "low": -4.2749063406877516e-18,
+        "high": 0.05676288871755366
+      },
+      "sample_size": 21344,
+      "death_rate": 0.0
+    }
+  },
+  "ethnicity": {
+    "Non-Hispanic/Latino": {
+      "multiplier": 1.6062021743522474,
+      "confidence_range": {
+        "low": 1.5985842162761104,
+        "high": 1.613856248671007
+      },
+      "sample_size": 33210106,
+      "death_rate": 0.005092064445684094
+    },
+    "Hispanic/Latino": {
+      "multiplier": 0.7473962634593314,
+      "confidence_range": {
+        "low": 0.7326904501248813,
+        "high": 0.7623965217788433
+      },
+      "sample_size": 4095915,
+      "death_rate": 0.0023694339360069727
+    }
+  }
+}

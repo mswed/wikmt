@@ -1,0 +1,37 @@
+{
+  "age_groups": {
+    "18 to 49 years": { "deaths": 1355, "cases": 30665035 },
+    "50 to 64 years": { "deaths": 10986, "cases": 11636612 },
+    "65+ years": { "deaths": 189663, "cases": 9320340 },
+    "0 - 17 years": { "deaths": 0, "cases": 10455716 },
+    "NaN": { "deaths": 450, "cases": 942411 },
+    "Missing": { "deaths": 151, "cases": 888070 }
+  },
+  "sex": {
+    "Male": { "deaths": 108713, "cases": 27464876 },
+    "Female": { "deaths": 91992, "cases": 32832536 },
+    "NaN": { "deaths": 1421, "cases": 2915542 },
+    "Unknown": { "deaths": 23, "cases": 394568 },
+    "Missing": { "deaths": 456, "cases": 299579 },
+    "Other": { "deaths": 0, "cases": 1083 }
+  },
+  "race": {
+    "Black": { "deaths": 13718, "cases": 5765956 },
+    "Multiple/Other": { "deaths": 74, "cases": 790957 },
+    "White": { "deaths": 168850, "cases": 33788305 },
+    "Missing": { "deaths": 3664, "cases": 4389929 },
+    "Unknown": { "deaths": 5393, "cases": 6862777 },
+    "NaN": { "deaths": 8394, "cases": 10761861 },
+    "Asian": { "deaths": 1916, "cases": 1221542 },
+    "American Indian/Alaska Native": { "deaths": 596, "cases": 305513 },
+    "Native Hawaiian/Other Pacific Islander": { "deaths": 0, "cases": 21344 }
+  },
+  "ethnicity": {
+    "Non-Hispanic/Latino": { "deaths": 169108, "cases": 33210106 },
+    "Unknown": { "deaths": 12661, "cases": 10305081 },
+    "Hispanic/Latino": { "deaths": 9705, "cases": 4095915 },
+    "Missing": { "deaths": 2221, "cases": 3907509 },
+    "NaN": { "deaths": 8910, "cases": 12389573 }
+  }
+}
+

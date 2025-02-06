@@ -1,0 +1,81 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3 py-2">{% block left_column %}{% endblock %}</div>
+    <div class="col-6">
+      <div class="position-relative">
+        <div id="map" style="height: 500px"></div>
+        <div class="card position-absolute bottom-0 end-0 m-3" style="z-index: 1">
+          <div class="card-body">
+            <h6 class="card-title">Risk Level</h6>
+            <div class="d-flex flex-column gap-2">
+              <div class="d-flex align-items-center">
+                <div style="
+                    width: 20px;
+                    height: 20px;
+                    background-color: rgba(20, 49, 9, 0.5);
+                    margin-right: 8px;
+                  "></div>
+                <span>Very Low Risk</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <div style="
+                    width: 20px;
+                    height: 20px;
+                    background-color: rgba(255, 247, 0, 0.5);
+                    margin-right: 8px;
+                  "></div>
+                <span>Low Risk</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <div style="
+                    width: 20px;
+                    height: 20px;
+                    background-color: rgba(255, 106, 0, 0.5);
+                    margin-right: 8px;
+                  "></div>
+                <span>Medium Risk</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <div style="
+                    width: 20px;
+                    height: 20px;
+                    background-color: rgba(255, 28, 28, 0.5);
+                    margin-right: 8px;
+                  "></div>
+                <span>High Risk</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <div style="
+                    width: 20px;
+                    height: 20px;
+                    background-color: rgba(255, 0, 153, 0.5);
+                    margin-right: 8px;
+                  "></div>
+                <span>Very High Risk</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <div style="
+                    width: 20px;
+                    height: 20px;
+                    background-color: rgba(255, 255, 255, 0.5);
+                    border: solid 1px;
+                    margin-right: 8px;
+                  "></div>
+                <span>No Data</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3 py-2">
+      {% block right_column %} {# Results code #} {% endblock %}
+    </div>
+  </div>
+</div>
+<script src="/static/utils.js"></script>
+<script src="/static/results.js"></script>
+<script src="/static/search.js"></script>
+<script src="/static/map.js"></script>
+{% endblock %}

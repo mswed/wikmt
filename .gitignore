@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Flask
+instance/
+.webassets-cache
+flask_session/
+
+# IDEs/Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Database
+*.db
+*.sqlite3
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Environment variables
+.env
+.flaskenv
+
+# Local development settings
+config.py
+local_settings.py
+
+# Test coverage
+.coverage
+htmlcov/

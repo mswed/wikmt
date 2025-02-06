@@ -1,0 +1,74 @@
+{% extends 'base.html' %} {% block title %} About {% endblock%} {% block content
+%}
+
+<div class="container">
+  <h1>About Will It Kill Me Though</h1>
+
+  <p>
+    Will It Kill Me Though is a small site with big dreams. At the moment it
+    offers some statistics on the spread of COVID in the US. It takes data from
+    the CDC waste water treatment plants that sample the existence of COVID in
+    the sewers and displays it on a map. The spread is measured in five
+    categories:
+  </p>
+
+  <ul>
+    <li>Very Low</li>
+    <li>Low</li>
+    <li>Medium</li>
+    <li>High</li>
+    <li>Very High</li>
+  </ul>
+
+  <p>
+    Searching for a specific address will also show county-level data which
+    includes the number of treatment plants in the county, the population these
+    facilities serve, and whether or not the spread is getting worse, better, or
+    is static. The last statistic is simply a comparison between the latest
+    sample and the one before it.
+  </p>
+
+  <p>
+    To make depressing statistics more entertaining, if you provide the site
+    with your demographic details (year of birth, sex, etc.), it will use
+    historic mortality data from the CDC to give an opinion on whether the found
+    spread of COVID will kill you.
+  </p>
+
+  <p>Once again there are 5 categories:</p>
+  <ul>
+    <li>I don't think so</li>
+    <li>Probably not</li>
+    <li>Maybe?</li>
+    <li>Probably</li>
+    <li>Absolutely it will</li>
+  </ul>
+
+  <p>
+    In the rare case that no spread data is provided (like the ENTIRE state of
+    North Dakota?!), you will get a 6th category: "I'm surprised you sure you're still
+    alive"
+  </p>
+
+  <p>
+    As these categories suggest, the results should not be taken too seriously.
+    While the spread of COVID data is (or at least should be) reliable, as
+    should the historical mortality rates, the risk of death calculation is just
+    a bunch of extrapolated multipliers used to give a rough, and hopefully
+    funny, estimate.
+  </p>
+
+  <p>
+    In the future, I hope the site will include more things that might kill you,
+    such as bird flu, car accidents, falling off ladders, and all the other
+    insane statistics provided by the CDC.
+  </p>
+
+  <div class="disclaimer mt-5 p-3 bg-light border rounded">
+    <small>Disclaimer: This website is for entertainment purposes only and should
+      not be used as a substitute for professional medical advice. Always
+      consult qualified healthcare providers about your specific health
+      circumstances.</small>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %} Register {% endblock%}
+{% block content %}
+
+<div class="container">
+  <h2>Register</h2>
+  <form action="/register" method='POST'>
+    {{ form.hidden_tag()}}
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="email-registration-field">Email</span>
+      {{ form.email(class='form-control', placeholder='Email')}}
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="password-registartion-field">{{ form.password.label }}</span>
+      {{ form.password(class='form-control', placeholder='Password')}}
+    </div>
+    <h6>Optional Data - Filling these fields will allow you to get statistic that are more specific to you</h6>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="birth-year-field">Birth Year</span>
+      {{ form.birth_year(class='form-control', placeholder='Which year were you born?')}}
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="sex-field">Sex</span>
+      {{ form.sex(class='form-control', placeholder='Sex')}}
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="race-field">Race</span>
+      {{ form.race(class='form-control', placeholder='Race')}}
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="ethnicity-field">Ethnicity</span>
+      {{ form.ethnicity(class='form-control', placeholder='Ethnicity')}}
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+
+  </form>
+
+</div>
+<div>
+  <div>
+  </div>
+</div>
+{% endblock %}

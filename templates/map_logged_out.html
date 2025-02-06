@@ -1,0 +1,25 @@
+{% extends 'map_base.html' %}
+{% block left_column %}
+<h4>Recently Saved Searches</h4>
+<div class="card">
+  <div class="card-body p-0">
+    <div class="overflow-auto" style="max-height: 400px">
+      <div class="list-group list-group-flush">
+        {% for search in recent_searches %}
+        <div class="card list-group-item list-group-item-action recent-search-select" data-search-id="{{ search.id }}">
+          <h5 class="card-title">
+            {{ search.start_date.strftime('%b %d, %Y') }} - {{ search.end_date.strftime('%b %d, %Y') }}
+          </h5>
+          <p class="card-text">{{ search.address.address }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block right_column %}
+{% include 'results.html' %}
+<script src="/static/app_control_lo.js"></script>
+{% endblock %}

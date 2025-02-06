@@ -1,0 +1,38 @@
+<div id="date-range-container" class="card shadow w-100 m-1 d-none">
+  <div class="card-body">
+    <h5 class="card-title">Date Range</h5>
+    <h6 class="card-subtitle mb-2 text-muted" id="date-range"></h6>
+  </div>
+</div>
+<div id="found-address-container" class="card shadow w-100 m-1 d-none">
+  <div class="card-body">
+    <h5 class="card-title">Address</h5>
+    <div class="card-text" id="found-address"></div>
+    {% if current_user.is_authenticated %}
+    <div class="d-flex justify-content-end gap-2">
+      <button type="button" class="btn btn-primary btn-sm" id="save-address">
+        Save
+      </button>
+    </div>
+    {% endif %}
+  </div>
+</div>
+<div id="found-county-container" class="card shadow w-100 m-1 d-none">
+  <div class="card-body">
+    <h5 class="card-title">County</h5>
+    <div id="found-county" class="card-text"></div>
+  </div>
+</div>
+<div id="death-risk-container" class="card shadow w-100 m-1 d-none">
+  <div class="card-body">
+    <h5 class="card-title">Will it kill me, though?</h5>
+    <section class="messages d-flex justify-content-center">
+      <div id="death-risk" class="card-text fs-5"></div>
+    </section>
+  </div>
+</div>
+{% if current_user.is_authenticated %}
+<button type="button" class="btn btn-primary w-100 m-1 d-none" id="save-search">
+  Save Search
+</button>
+{% endif %}

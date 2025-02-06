@@ -1,0 +1,115 @@
+<div class="card shadow my-1">
+  <ul class="nav nav-tabs" id="searchTabs" role="tablist">
+    <li class="nav-item">
+      <a
+        class="nav-link active"
+        id="search-tab"
+        data-bs-toggle="tab"
+        href="#search"
+        role="tab"
+        >Search</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        id="saved-tab"
+        data-bs-toggle="tab"
+        href="#saved"
+        role="tab"
+        >Saved Searches</a
+      >
+    </li>
+  </ul>
+
+  <div class="tab-content" id="searchTabsContent">
+    <div class="tab-pane fade show active" id="search" role="tabpanel">
+      <form action="" id="search-form">
+        <div class="px-1">
+          <div class="mb-3">
+            <label for="start_date" class="form-label px-1">Start Date</label>
+            {{ search_form.start_date(class='form-control px-1',
+            placeholder='Start Date')}}
+          </div>
+          <div class="mb-3">
+            <label for="end_date" class="form-label px-1">End Date</label>
+            {{ search_form.end_date(class='form-control px-1',
+            placeholder='Start Date')}}
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label px-1">Address</label>
+            {{ search_form.address(class='form-control px-1')}}
+            <ul class="dropdown-menu" id="address-dropdown"></ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Saved Addresses</div>
+          <div class="card-body p-0">
+            <div class="overflow-auto" style="max-height: 200px">
+              <div
+                class="list-group list-group-flush"
+                id="saved-addresses-list"
+              >
+                {% for address in addresses%}
+                <div
+                  class="card list-group-item saved-address"
+                  data-mapbox-id="{{address.mapbox_id}}"
+                  data-address-id="{{ address.id }}"
+                >
+                  <p class="card-text">{{ address.address }}</p>
+                  <div class="d-flex justify-content-end gap-2">
+                    <button class="btn btn-sm btn-success saved-address-select">
+                      Select
+                    </button>
+                    <button class="btn btn-sm btn-danger saved-address-delete">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </div>
+                </div>
+
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" id="search-button" type="submit">
+          Search!
+        </button>
+      </form>
+    </div>
+    <div class="tab-pane fade" id="saved" role="tabpanel">
+      <!-- Content for saved searches tab -->
+      <div class="card">
+        <div class="card-body p-0">
+          <div class="overflow-auto" style="max-height: 400px">
+            <div class="list-group list-group-flush" id="saved-searches-list">
+              {% for search in searches %}
+              <div
+                class="card list-group-item"
+                data-search-id="{{ search.id }}"
+              >
+                <h5 class="card-title">
+                  {{ search.start_date }} - {{ search.end_date}}
+                </h5>
+                <p class="card-text">
+                  {{ '' if search.address.address == 'undefined' else
+                  search.address.address }}
+                </p>
+                <div class="d-flex justify-content-end gap-2">
+                  <button class="btn btn-sm btn-success saved-search-select">
+                    Get Stats
+                  </button>
+                  <button class="btn btn-sm btn-danger saved-search-delete">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
