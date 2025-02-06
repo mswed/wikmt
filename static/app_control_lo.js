@@ -22,7 +22,6 @@ async function selectSearch(element) {
   const searchId = element.dataset.searchId;
   const searchData = await axios.post('/load/search', { searchId });
   if (searchData.data.success) {
-    console.log('Got search!', searchData.data.success);
     const data = searchData.data.success;
     const [wwtpStats, county] = await performSearch(data.address, data.mapboxId, data.startDate, data.endDate);
     displayResults(data.startDate, data.endDate, data.address, data.mapboxId, county, wwtpStats);

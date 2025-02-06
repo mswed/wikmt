@@ -104,7 +104,6 @@ async function getCountyData(records, county_name) {
   // text in it that we do not need so we clean it up
   let short_county = county_name;
   let region_type = null;
-  console.log('Got county name', county_name);
 
   // const short_county = county_name.replace('County', '').trim();
   if (county_name.includes('Parish') || county_name.includes('County')) {
@@ -117,7 +116,6 @@ async function getCountyData(records, county_name) {
     }
     region_type = name_split.pop();
   }
-  console.log('final name is', short_county);
   for (rec of records) {
     if (region_type) {
       if (rec.properties.NAME === short_county && rec.properties.LSAD === region_type) {
@@ -151,7 +149,7 @@ async function searchAddress(mapboxId = null) {
     // Get county info
     if (firstResult.properties.context.district) {
       county = firstResult.properties.context.district.name;
-    } else if (firstResult.properties.context.region) {
+    } else if (firstResult.properties.context.region && firstResult.properties.feature_type !== 'region') {
       county = firstResult.properties.context.region.name;
     } else {
       county = null;
