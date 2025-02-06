@@ -42,7 +42,7 @@ us_states = {
     "Nevada": {"abb": "NV", "fips": "32"},
     "New Hampshire": {"abb": "NH", "fips": "33"},
     "New Jersey": {"abb": "NJ", "fips": "34"},
-    "New Mexico": {"abb": "NM", "fips": "25"},
+    "New Mexico": {"abb": "NM", "fips": "35"},
     "New York": {"abb": "NY", "fips": "36"},
     "North Carolina": {"abb": "NC", "fips": "37"},
     "North Dakota": {"abb": "ND", "fips": "38"},

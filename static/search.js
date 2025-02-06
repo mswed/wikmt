@@ -61,6 +61,7 @@ async function searchWWTPByLocationAndDates(address, startDate = '2024-12-01', e
  * @retuns {Array} [wwtpStats, county] - wwtp statistics for the county or null if a US wide search, and a county name
  * */
 async function performSearch(address = null, mapboxId = null, startDate, endDate) {
+  console.log('searching');
   let wwtpStats = null;
   let jurisdiction, county;
 
@@ -157,6 +158,7 @@ async function searchAddress(mapboxId = null) {
 
     const coordinates = firstResult.geometry.coordinates;
 
+    console.log('State is', state);
     // Combine this into find address
     const fips_info = await axios.get('/fips', { params: { state } });
     // Enable counties

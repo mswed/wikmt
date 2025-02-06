@@ -159,7 +159,7 @@ async function selectSearch(element) {
   const searchId = searchCard.dataset.searchId;
   const searchData = await axios.post('/load/search', { searchId });
   if (searchData.data.success) {
-    const data = searchData.data.search;
+    const data = searchData.data.success;
     data.mapboxId = data.mapboxId === 'undefined' ? null : data.mapboxId;
     data.address = data.address === 'undefined' ? null : data.address;
     const [wwtpStats, county] = await performSearch(data.address, data.mapboxId, data.startDate, data.endDate);
