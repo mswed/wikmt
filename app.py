@@ -43,6 +43,10 @@ def create_app(database='wikmt_db', echo=False, redirects=True, testing=False, c
     logger.info('Starting application initialization')
     app = Flask(__name__)
 
+    @app.before_request
+    def log_request_info():
+        logger.info(f'Request received: {request.method} {request.path}')
+
     # Log the database URL (with credential info hidden)
     db_url = os.environ.get('DATABASE_URL', f'postgresql:///{database}')
 
@@ -103,10 +107,6 @@ def create_app(database='wikmt_db', echo=False, redirects=True, testing=False, c
         :returns: User
         """
         return db.session.query(User).get(int(user_id))
-
-    @app.before_request
-    def log_request_info():
-        logger.info(f'Request received: {request.method} {request.path}')
 
     ############################ NAVIGAGTION ##################################
     @app.route('/')
@@ -487,7 +487,10 @@ def create_app(database='wikmt_db', echo=False, redirects=True, testing=False, c
         """
         Returns a geojson of all US counties
         """
-        return send_from_directory('static/data', 'counties.geojson')
+
+    @app.route('/health')
+    def health_check():
+        return 'OK', 200       return send_from_directory('static/data', 'counties.geojson')
 
     logger.info('Application initialized successfully')
     return app

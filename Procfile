@@ -1,1 +1,1 @@
-web: python seed.py && gunicorn app:app --bind 0.0.0.0:$PORT --log-level debug
+web: gunicorn app:app --bind 0.0.0.0:$PORT --timeout 120 --keep-alive 65
