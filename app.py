@@ -46,6 +46,14 @@ def create_app(database='wikmt_db', echo=False, redirects=True, testing=False, c
     @app.before_request
     def log_request_info():
         logger.info(f'Request received: {request.method} {request.path}')
+        return None
+
+    @app.after_request
+    def log_request_end(response):
+        logger.info(
+            f'Request completed: {request.method} {request.path} - Status: {response.status_code}'
+        )
+        return response
 
     # Log the database URL (with credential info hidden)
     db_url = os.environ.get('DATABASE_URL', f'postgresql:///{database}')
@@ -492,6 +500,11 @@ def create_app(database='wikmt_db', echo=False, redirects=True, testing=False, c
     @app.route('/health')
     def health_check():
         return 'OK', 200
+
+    @app.route('/test-log')
+    def test_log():
+        logger.info('Test log route was accessed!')
+        return 'This is a test log route'
 
     logger.info('Application initialized successfully')
 
