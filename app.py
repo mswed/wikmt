@@ -104,6 +104,10 @@ def create_app(database='wikmt_db', echo=False, redirects=True, testing=False, c
         """
         return db.session.query(User).get(int(user_id))
 
+    @app.before_request
+    def log_request_info():
+        logger.info(f'Request received: {request.method} {request.path}')
+
     ############################ NAVIGAGTION ##################################
     @app.route('/')
     def home():
