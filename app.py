@@ -487,12 +487,14 @@ def create_app(database='wikmt_db', echo=False, redirects=True, testing=False, c
         """
         Returns a geojson of all US counties
         """
+        return send_from_directory('static/data', 'counties.geojson')
 
     @app.route('/health')
     def health_check():
-        return 'OK', 200       return send_from_directory('static/data', 'counties.geojson')
+        return 'OK', 200
 
     logger.info('Application initialized successfully')
+
     return app
 
 
