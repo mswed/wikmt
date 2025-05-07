@@ -42,79 +42,79 @@ def create_app(database='wikmt_db', echo=False, redirects=True, testing=False, c
 
     logger.info('Starting application initialization')
     app = Flask(__name__)
-
-    @app.before_request
-    def log_request_info():
-        logger.info(f'Request received: {request.method} {request.path}')
-        return None
-
-    @app.after_request
-    def log_request_end(response):
-        logger.info(
-            f'Request completed: {request.method} {request.path} - Status: {response.status_code}'
-        )
-        return response
-
-    # Log the database URL (with credential info hidden)
-    db_url = os.environ.get('DATABASE_URL', f'postgresql:///{database}')
-
-    if 'postgresql://' in db_url:
-        # Don't log the full URL with credentials
-        logger.info(f'Database URL is configured: {db_url.split("@")[-1]}')
-    else:
-        logger.info(f'Database URL: {db_url}')
-
-    # Get DB_URI from environ variable (useful for production/testing) or,
-    # if not set there, use development local db.
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
-        'DATABASE_URL', f'postgresql:///{database}'
-    )
-
-    logger.info('Configuring SQLAlchemy')
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SQLALCHEMY_ECHO'] = echo
-    app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = redirects
-    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', "it's a secret")
-    app.config['TESTING'] = testing
-    app.config['WTF_CSRF_ENABLED'] = csrf
-
-    logger.info('Connecting to database')
-    try:
-        connect_db(app)
-        logger.info('Database connection successful')
-    except Exception as e:
-        logger.info(f'Database connection failed {e}')
-
-    # Set up flask-login
-    login_manager = LoginManager()
-    login_manager.init_app(app)
-
-    # What to do when the user isn't logged it
-    login_manager.login_view = 'home'  # Redirect to home
-    login_manager.login_message = 'Login required!'
-    login_manager.login_message_category = 'danger'
-
-    @login_manager.unauthorized_handler
-    def unauthorized():
-        """Handle unauthorized access to protected routes"""
-        if request.is_json or (
-            request.accept_mimetypes.best == 'application/json' and not request.form
-        ):
-            return jsonify({'success': False, 'msg': 'Login required'}), 401
-
-        # Add the flash message before redirecting
-        flash(login_manager.login_message, category=login_manager.login_message_category)
-        return redirect(url_for('home'))
-
-    @login_manager.user_loader
-    def load_user(user_id):
-        """
-        Flask-Login function to log the user in
-        :param user_id: str, user ID. This is passed as a string and needs to be
-        converted to int
-        :returns: User
-        """
-        return db.session.query(User).get(int(user_id))
+    #
+    # @app.before_request
+    # def log_request_info():
+    #     logger.info(f'Request received: {request.method} {request.path}')
+    #     return None
+    #
+    # @app.after_request
+    # def log_request_end(response):
+    #     logger.info(
+    #         f'Request completed: {request.method} {request.path} - Status: {response.status_code}'
+    #     )
+    #     return response
+    #
+    # # Log the database URL (with credential info hidden)
+    # db_url = os.environ.get('DATABASE_URL', f'postgresql:///{database}')
+    #
+    # if 'postgresql://' in db_url:
+    #     # Don't log the full URL with credentials
+    #     logger.info(f'Database URL is configured: {db_url.split("@")[-1]}')
+    # else:
+    #     logger.info(f'Database URL: {db_url}')
+    #
+    # # Get DB_URI from environ variable (useful for production/testing) or,
+    # # if not set there, use development local db.
+    # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+    #     'DATABASE_URL', f'postgresql:///{database}'
+    # )
+    #
+    # logger.info('Configuring SQLAlchemy')
+    # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    # app.config['SQLALCHEMY_ECHO'] = echo
+    # app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = redirects
+    # app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', "it's a secret")
+    # app.config['TESTING'] = testing
+    # app.config['WTF_CSRF_ENABLED'] = csrf
+    #
+    # logger.info('Connecting to database')
+    # try:
+    #     connect_db(app)
+    #     logger.info('Database connection successful')
+    # except Exception as e:
+    #     logger.info(f'Database connection failed {e}')
+    #
+    # # Set up flask-login
+    # login_manager = LoginManager()
+    # login_manager.init_app(app)
+    #
+    # # What to do when the user isn't logged it
+    # login_manager.login_view = 'home'  # Redirect to home
+    # login_manager.login_message = 'Login required!'
+    # login_manager.login_message_category = 'danger'
+    #
+    # @login_manager.unauthorized_handler
+    # def unauthorized():
+    #     """Handle unauthorized access to protected routes"""
+    #     if request.is_json or (
+    #         request.accept_mimetypes.best == 'application/json' and not request.form
+    #     ):
+    #         return jsonify({'success': False, 'msg': 'Login required'}), 401
+    #
+    #     # Add the flash message before redirecting
+    #     flash(login_manager.login_message, category=login_manager.login_message_category)
+    #     return redirect(url_for('home'))
+    #
+    # @login_manager.user_loader
+    # def load_user(user_id):
+    #     """
+    #     Flask-Login function to log the user in
+    #     :param user_id: str, user ID. This is passed as a string and needs to be
+    #     converted to int
+    #     :returns: User
+    #     """
+    #     return db.session.query(User).get(int(user_id))
 
     @app.route('/')
     def home():
