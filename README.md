@@ -34,7 +34,7 @@ _Disclaimer: This website is for entertainment purposes only and should not be u
 
 # Live Demo
 
-(https://web-production-4c56.up.railway.app)
+https://web-production-4c56.up.railway.app
 
 # API Info
 
