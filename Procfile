@@ -1,1 +1,1 @@
-web: gunicorn app:app --bind 0.0.0.0:$PORT --timeout 120 --keep-alive 65
+web: python -c 'from app import app, db; app.app_context().push(); db.create_all()' && gunicorn app:app --bind 0.0.0.0:$PORT --timeout 300 --workers 2
