@@ -518,6 +518,14 @@ def create_app(database='wikmt_db', echo=False, redirects=True, testing=False, c
     return app
 
 
+app = Flask(__name__)
+
+
+@app.route('/')
+def hello():
+    logger.info('Root route accessed!')
+    return 'Hello World!'
+
+
 if __name__ == '__main__':
-    app = create_app()
     app.run(host='0.0.0.0', port=8080)
